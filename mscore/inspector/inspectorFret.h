@@ -40,6 +40,10 @@ class InspectorFretDiagram : public InspectorElementBase {
       void crossButtonToggled(bool v);
       void squareButtonToggled(bool v);
       void triangleButtonToggled(bool v);
+      void dotCrossButtonToggled(bool v);
+      void dotSquareButtonToggled(bool v);
+      void dotTriangleButtonToggled(bool v);
+      void circleOptionalButtonToggled(bool v);
       void barreButtonToggled(bool v);
       void multidotButtonToggled(bool v);
       void clearButtonClicked();

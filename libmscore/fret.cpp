@@ -362,7 +362,63 @@ void FretDiagram::draw(QPainter* painter) const
                               painter->drawLine(QLineF(x + .5 * dotd, y, x + dotd, y + dotd));
                               painter->drawLine(QLineF(x + dotd, y + dotd, x, y + dotd));
                               break;
+                        case FretDotType::DOT_CROSS:
+                              // Dot
+                              painter->setBrush(symPen.color());
+                              //painter->setPen(symPen);
+                              painter->setPen(Qt::NoPen);
+                              painter->drawEllipse(QRectF(x, y, dotd, dotd));
+                              // Cross
+                              symPen.setWidthF(symPenWidth * 1.5);
+                              painter->setPen(symPen);
+                              painter->drawLine(QLineF(x, y, x + dotd, y + dotd));
+                              painter->drawLine(QLineF(x + dotd, y, x, y + dotd));
+                              symPen.setWidthF(symPenWidth);
+                              break;
+                        case FretDotType::DOT_SQUARE:
+                              // Dot
+                              painter->setBrush(symPen.color());
+                              //painter->setPen(symPen);
+                              painter->setPen(Qt::NoPen);
+                              painter->drawEllipse(QRectF(x, y, dotd, dotd));
+                              // Square
+                              painter->setBrush(Qt::NoBrush);
+                              painter->drawRect(QRectF(x, y, dotd, dotd));
+                          
+                              break;
+                        case FretDotType::DOT_TRIANGLE:
+                              // Dot
+                              painter->setBrush(symPen.color());
+                              //painter->setPen(symPen);
+                              painter->setPen(Qt::NoPen);
+                              painter->drawEllipse(QRectF(x, y, dotd, dotd));
+                              // Triangle
+                              painter->drawLine(QLineF(x, y + dotd, x + .5 * dotd, y));
+                              painter->drawLine(QLineF(x + .5 * dotd, y, x + dotd, y + dotd));
+                              painter->drawLine(QLineF(x + dotd, y + dotd, x, y + dotd));
+                              break;
+                        case FretDotType::CIRCLE_OPTIONAL:
+                              // Give the CIRCLE_OPTIONAL a slightly larger width
+                              symPen.setWidthF(symPenWidth * 1.5);
+                              painter->setPen(symPen);
+                              painter->setBrush(symPen.color());
+                              //painter->setPen(Qt::NoPen);
+                              painter->drawEllipse(QRectF(x, y, dotd, dotd));
+                              // Reset width?
+                              symPen.setWidthF(symPenWidth);
+                              break;
                         case FretDotType::NORMAL:
+//                      case FretDotType::NORMAL:
+//                          // Dot
+//                          painter->setBrush(symPen.color());
+//                          //painter->setPen(symPen);
+//                          painter->setPen(Qt::NoPen);
+//                          painter->drawEllipse(QRectF(x, y, dotd, dotd));
+//                          // Triangle
+//                          painter->drawLine(QLineF(x, y + dotd, x + .5 * dotd, y));
+//                          painter->drawLine(QLineF(x + .5 * dotd, y, x + dotd, y + dotd));
+//                          painter->drawLine(QLineF(x + dotd, y + dotd, x, y + dotd));
+//                          break;
                         default:
                               painter->setBrush(symPen.color());
                               painter->setPen(Qt::NoPen);
@@ -391,6 +447,36 @@ void FretDiagram::draw(QPainter* painter) const
                   painter->drawLine(QPointF(x, y), QPointF(x + markerSize, y + markerSize));
                   painter->drawLine(QPointF(x, y + markerSize), QPointF(x + markerSize, y));
                   }
+            else if (marker.mtype == FretMarkerType::SQUARE) {
+                  painter->drawRect(QRectF(x, y, markerSize, markerSize));
+                  }
+            else if (marker.mtype == FretMarkerType::TRIANGLE) {
+                  painter->drawLine(QPointF(x, y + markerSize), QPointF( x + .5 * markerSize, y) );
+                  painter->drawLine(QPointF(x + .5 * markerSize, y), QPointF( x + markerSize, y + markerSize));
+                  painter->drawLine(QPointF(x + markerSize, y + markerSize), QPointF( x, y + markerSize));
+            }
+            else if (marker.mtype == FretMarkerType::DOT_CROSS) {
+                  painter->drawEllipse(QRectF(x, y, markerSize, markerSize));
+                  painter->drawLine(QPointF(x, y), QPointF(x + markerSize, y + markerSize));
+                  painter->drawLine(QPointF(x, y + markerSize), QPointF(x + markerSize, y));
+            }
+            else if (marker.mtype == FretMarkerType::DOT_SQUARE) {
+                  painter->drawEllipse(QRectF(x, y, markerSize, markerSize));
+                  painter->drawRect(QRectF(x, y, markerSize, markerSize));
+            }
+            else if (marker.mtype == FretMarkerType::DOT_TRIANGLE) {
+                  painter->drawEllipse(QRectF(x, y, markerSize, markerSize));
+                  // Triangle
+                  painter->drawLine(QPointF(x, y + markerSize), QPointF( x + .5 * markerSize, y) );
+                  painter->drawLine(QPointF(x + .5 * markerSize, y), QPointF( x + markerSize, y + markerSize));
+                  painter->drawLine(QPointF(x + markerSize, y + markerSize), QPointF( x, y + markerSize));
+                
+            }
+            else if (marker.mtype == FretMarkerType::CIRCLE_OPTIONAL) {
+                 symPen.setWidthF(symPenWidth * 1.4);
+                 painter->drawEllipse(QRectF(x, y, markerSize, markerSize));
+                 symPen.setWidthF(symPenWidth * 1.2);
+            }
             }
 
       // Draw barres
@@ -1464,6 +1550,24 @@ QString FretDiagram::screenReaderInfo() const
                   case FretMarkerType::CROSS:
                         markerName = QObject::tr("cross marker");
                         break;
+                  case FretMarkerType::SQUARE:
+                        markerName = QObject::tr("square marker");
+                        break;
+                  case FretMarkerType::TRIANGLE:
+                        markerName = QObject::tr("triangle marker");
+                        break;
+                  case FretMarkerType::DOT_CROSS:
+                        markerName = QObject::tr("dot_cross marker");
+                        break;
+                  case FretMarkerType::DOT_SQUARE:
+                        markerName = QObject::tr("dot_square marker");
+                        break;
+                  case FretMarkerType::DOT_TRIANGLE:
+                        markerName = QObject::tr("dot_triangle marker");
+                        break;
+                  case FretMarkerType::CIRCLE_OPTIONAL:
+                        markerName = QObject::tr("circle_optional marker");
+                        break;
                   case FretMarkerType::NONE:
                   default:
                         break;
@@ -1556,6 +1660,18 @@ QChar FretItem::markerToChar(FretMarkerType t)
             case FretMarkerType::CROSS:
                   return QChar('X');
             case FretMarkerType::NONE:
+            case FretMarkerType::SQUARE:
+                  return QChar('S');
+            case FretMarkerType::TRIANGLE:
+                 return QChar('N');
+            case FretMarkerType::DOT_CROSS:
+                 return QChar('C');
+            case FretMarkerType::DOT_SQUARE:
+                 return QChar('S');
+            case FretMarkerType::DOT_TRIANGLE:
+                 return QChar('T');
+            case FretMarkerType::CIRCLE_OPTIONAL:
+                 return QChar('O');
             default:
                   return QChar();
             }
@@ -1568,7 +1684,13 @@ QChar FretItem::markerToChar(FretMarkerType t)
 const std::vector<FretItem::MarkerTypeNameItem> FretItem::markerTypeNameMap = {
       { FretMarkerType::CIRCLE,     "circle"    },
       { FretMarkerType::CROSS,      "cross"     },
-      { FretMarkerType::NONE,       "none"      }
+      { FretMarkerType::NONE,       "none"      },
+      { FretMarkerType::SQUARE,     "square"    },
+      { FretMarkerType::TRIANGLE,       "triangle"     },
+      { FretMarkerType::DOT_CROSS,      "dot_cross"      },
+      { FretMarkerType::DOT_SQUARE,     "dot_square"    },
+      { FretMarkerType::DOT_TRIANGLE,   "dot_triangle"     },
+      { FretMarkerType::CIRCLE_OPTIONAL,"circle_optional"      }
       };
 
 QString FretItem::markerTypeToName(FretMarkerType t)
@@ -1604,6 +1726,10 @@ const std::vector<FretItem::DotTypeNameItem> FretItem::dotTypeNameMap = {
       { FretDotType::CROSS,         "cross"     },
       { FretDotType::SQUARE,        "square"    },
       { FretDotType::TRIANGLE,      "triangle"  },
+      { FretDotType::DOT_CROSS,        "dot_cross"    },
+      { FretDotType::DOT_SQUARE,       "dot_square"     },
+      { FretDotType::DOT_TRIANGLE,     "dot_triangle"    },
+      { FretDotType::CIRCLE_OPTIONAL,  "circle_optional"  },
       };
 
 QString FretItem::dotTypeToName(FretDotType t)

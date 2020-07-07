@@ -32,14 +32,24 @@ enum class FretDotType : signed char {
       NORMAL = 0,
       CROSS,
       SQUARE,
-      TRIANGLE = 3
+      TRIANGLE,
+      DOT_CROSS,
+      DOT_SQUARE,
+      DOT_TRIANGLE,
+      CIRCLE_OPTIONAL = 7
       };
 
 
 enum class FretMarkerType : signed char {
       NONE,
       CIRCLE,
-      CROSS
+      CROSS,
+      SQUARE,
+      TRIANGLE,
+      DOT_CROSS,
+      DOT_SQUARE,
+      DOT_TRIANGLE,
+      CIRCLE_OPTIONAL
       };
 
 
