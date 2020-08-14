@@ -40,10 +40,30 @@ class InspectorFretDiagram : public InspectorElementBase {
       void crossButtonToggled(bool v);
       void squareButtonToggled(bool v);
       void triangleButtonToggled(bool v);
+    
+      void circleOptionalButtonToggled(bool v);
       void dotCrossButtonToggled(bool v);
       void dotSquareButtonToggled(bool v);
       void dotTriangleButtonToggled(bool v);
-      void circleOptionalButtonToggled(bool v);
+    
+      void dot_optionalButtonToggled(bool v);
+      void cross_squareButtonToggled(bool v);
+      void cross_triangleButtonToggled(bool v);
+      void cross_optionalButtonToggled(bool v);
+      void square_triangleButtonToggled(bool v);
+      void square_optionalButtonToggled(bool v);
+      void triangle_optionalButtonToggled(bool v);
+      void dot_cross_squareButtonToggled(bool v);
+      void dot_cross_triangleButtonToggled(bool v);
+      void dot_cross_optionalButtonToggled(bool v);
+      void dot_square_triangleButtonToggled(bool v);
+      void dot_square_optionalButtonToggled(bool v);
+      void dot_triangle_optionalButtonToggled(bool v);
+      void cross_square_triangleButtonToggled(bool v);
+      void cross_square_optionalButtonToggled(bool v);
+      void cross_triangle_optionalButtonToggled(bool v);
+      void square_triangle_optionalButtonToggled(bool v);
+    
       void barreButtonToggled(bool v);
       void multidotButtonToggled(bool v);
       void clearButtonClicked();

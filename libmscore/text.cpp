@@ -62,7 +62,7 @@ QVariant Text::propertyDefault(Pid id) const
       switch(id) {
             case Pid::SUB_STYLE:
                   return int(Tid::DEFAULT);
-            default:
+            default: 
                   return TextBase::propertyDefault(id);
             }
       }

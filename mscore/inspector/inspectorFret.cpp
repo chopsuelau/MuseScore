@@ -45,10 +45,28 @@ InspectorFretDiagram::InspectorFretDiagram(QWidget* parent)
             f.crossSelect,
             f.triangleSelect,
             f.squareSelect,
+            f.circleOptionalSelect,
             f.dotCrossSelect,
             f.dotSquareSelect,
             f.dotTriangleSelect,
-            f.circleOptionalSelect
+            f.dot_optionalSelect,
+            f.cross_squareSelect,
+            f.cross_triangleSelect,
+            f.cross_optionalSelect,
+            f.square_triangleSelect,
+            f.square_optionalSelect,
+            f.triangle_optionalSelect,
+            f.dot_cross_squareSelect,
+            f.dot_cross_triangleSelect,
+            f.dot_cross_optionalSelect,
+            f.dot_square_triangleSelect,
+            f.dot_square_optionalSelect,
+            f.dot_triangle_optionalSelect,
+            f.cross_square_triangleSelect,
+            f.cross_square_optionalSelect,
+            f.cross_triangle_optionalSelect,
+            f.square_triangle_optionalSelect
+         
             };
 
       mapSignals(iiList, ppList);
@@ -65,11 +83,28 @@ InspectorFretDiagram::InspectorFretDiagram(QWidget* parent)
       connect(f.crossSelect,    SIGNAL(toggled(bool)), SLOT(crossButtonToggled(bool)));
       connect(f.triangleSelect, SIGNAL(toggled(bool)), SLOT(triangleButtonToggled(bool)));
       connect(f.squareSelect,   SIGNAL(toggled(bool)), SLOT(squareButtonToggled(bool)));
-          
+      connect(f.circleOptionalSelect,   SIGNAL(toggled(bool)), SLOT(circleOptionalButtonToggled(bool)));
       connect(f.dotCrossSelect,   SIGNAL(toggled(bool)), SLOT(dotCrossButtonToggled(bool)));
       connect(f.dotSquareSelect,    SIGNAL(toggled(bool)), SLOT(dotSquareButtonToggled(bool)));
       connect(f.dotTriangleSelect, SIGNAL(toggled(bool)), SLOT(dotTriangleButtonToggled(bool)));
-      connect(f.circleOptionalSelect,   SIGNAL(toggled(bool)), SLOT(circleOptionalButtonToggled(bool)));
+      
+      connect(f.dot_optionalSelect, SIGNAL(toggled(bool)), SLOT(dot_optionalButtonToggled(bool)));
+      connect(f.cross_squareSelect, SIGNAL(toggled(bool)), SLOT(cross_squareButtonToggled(bool)));
+      connect(f.cross_triangleSelect, SIGNAL(toggled(bool)), SLOT(cross_triangleButtonToggled(bool)));
+      connect(f.cross_optionalSelect, SIGNAL(toggled(bool)), SLOT(cross_optionalButtonToggled(bool)));
+      connect(f.square_triangleSelect, SIGNAL(toggled(bool)), SLOT(square_triangleButtonToggled(bool)));
+      connect(f.square_optionalSelect, SIGNAL(toggled(bool)), SLOT(square_optionalButtonToggled(bool)));
+      connect(f.triangle_optionalSelect, SIGNAL(toggled(bool)), SLOT(triangle_optionalButtonToggled(bool)));
+      connect(f.dot_cross_squareSelect, SIGNAL(toggled(bool)), SLOT(dot_cross_squareButtonToggled(bool)));
+      connect(f.dot_cross_triangleSelect, SIGNAL(toggled(bool)), SLOT(dot_cross_triangleButtonToggled(bool)));
+      connect(f.dot_cross_optionalSelect, SIGNAL(toggled(bool)), SLOT(dot_cross_optionalButtonToggled(bool)));
+      connect(f.dot_square_triangleSelect, SIGNAL(toggled(bool)), SLOT(dot_square_triangleButtonToggled(bool)));
+      connect(f.dot_square_optionalSelect, SIGNAL(toggled(bool)), SLOT(dot_square_optionalButtonToggled(bool)));
+      connect(f.dot_triangle_optionalSelect, SIGNAL(toggled(bool)), SLOT(dot_triangle_optionalButtonToggled(bool)));
+      connect(f.cross_square_triangleSelect, SIGNAL(toggled(bool)), SLOT(cross_square_triangleButtonToggled(bool)));
+      connect(f.cross_square_optionalSelect, SIGNAL(toggled(bool)), SLOT(cross_square_optionalButtonToggled(bool)));
+      connect(f.cross_triangle_optionalSelect, SIGNAL(toggled(bool)), SLOT(cross_triangle_optionalButtonToggled(bool)));
+      connect(f.square_triangle_optionalSelect, SIGNAL(toggled(bool)), SLOT(square_triangle_optionalButtonToggled(bool)));
           
       connect(f.toggleBarre,    SIGNAL(toggled(bool)), SLOT(barreButtonToggled(bool)));
       connect(f.toggleMultidot, SIGNAL(toggled(bool)), SLOT(multidotButtonToggled(bool)));
@@ -185,43 +220,121 @@ void InspectorFretDiagram::triangleButtonToggled(bool v)
       genericButtonToggled(f.triangleSelect, v, FretDotType::TRIANGLE);
       }
 
-    //---------------------------------------------------------
-    //   dotCrossButtonToggled
-    //---------------------------------------------------------
-    
-    void InspectorFretDiagram::dotCrossButtonToggled(bool v)
-    {
+ //---------------------------------------------------------
+ //   dotCrossButtonToggled
+ //---------------------------------------------------------
+ 
+void InspectorFretDiagram::dotCrossButtonToggled(bool v)
+      {
         genericButtonToggled(f.dotCrossSelect, v, FretDotType::DOT_CROSS);
-    }
-    
-    //---------------------------------------------------------
-    //   dotSquareButtonToggled
-    //---------------------------------------------------------
-    
-    void InspectorFretDiagram::dotSquareButtonToggled(bool v)
-    {
+      }
+ 
+ //---------------------------------------------------------
+ //   dotSquareButtonToggled
+ //---------------------------------------------------------
+ 
+void InspectorFretDiagram::dotSquareButtonToggled(bool v)
+      {
         genericButtonToggled(f.dotSquareSelect, v, FretDotType::DOT_SQUARE);
-    }
-    
-    //---------------------------------------------------------
-    //   dotTriangleButtonToggled
-    //---------------------------------------------------------
-    
-    void InspectorFretDiagram::dotTriangleButtonToggled(bool v)
-    {
-        genericButtonToggled(f.dotTriangleSelect, v, FretDotType::DOT_TRIANGLE);
-    }
-    
-    //---------------------------------------------------------
-    //   circleOptionalButtonToggled
-    //---------------------------------------------------------
-    
-    void InspectorFretDiagram::circleOptionalButtonToggled(bool v)
-    {
-        genericButtonToggled(f.circleOptionalSelect, v, FretDotType::CIRCLE_OPTIONAL);
-    }
-    
-    
+      }
+
+//---------------------------------------------------------
+//   circleOptionalButtonToggled
+//---------------------------------------------------------
+
+void InspectorFretDiagram::circleOptionalButtonToggled(bool v)
+      {
+         genericButtonToggled(f.circleOptionalSelect, v, FretDotType::CIRCLE_OPTIONAL);
+      }
+
+ //---------------------------------------------------------
+ //   dotTriangleButtonToggled
+ //---------------------------------------------------------
+
+   
+void InspectorFretDiagram::dotTriangleButtonToggled(bool v)
+      {
+         genericButtonToggled(f.dotTriangleSelect, v, FretDotType::DOT_TRIANGLE);
+      }
+   
+void InspectorFretDiagram::dot_optionalButtonToggled(bool v)
+      {
+         genericButtonToggled(f.dot_optionalSelect, v, FretDotType::DOT_OPTIONAL);
+      }
+void InspectorFretDiagram::cross_squareButtonToggled(bool v)
+      {
+         genericButtonToggled(f.cross_squareSelect, v, FretDotType::CROSS_SQUARE);
+      }
+void InspectorFretDiagram::cross_triangleButtonToggled(bool v)
+      {
+         genericButtonToggled(f.cross_triangleSelect, v, FretDotType::CROSS_TRIANGLE);
+      }
+void InspectorFretDiagram::cross_optionalButtonToggled(bool v)
+      {
+         genericButtonToggled(f.cross_optionalSelect, v, FretDotType::CROSS_OPTIONAL);
+      }
+void InspectorFretDiagram::square_triangleButtonToggled(bool v)
+      {
+         genericButtonToggled(f.square_triangleSelect, v, FretDotType::SQUARE_TRIANGLE);
+      }
+void InspectorFretDiagram::square_optionalButtonToggled(bool v)
+      {
+         genericButtonToggled(f.square_optionalSelect, v, FretDotType::SQUARE_OPTIONAL);
+      }
+void InspectorFretDiagram::triangle_optionalButtonToggled(bool v)
+      {
+         genericButtonToggled(f.triangle_optionalSelect, v, FretDotType::TRIANGLE_OPTIONAL);
+      }
+void InspectorFretDiagram::dot_cross_squareButtonToggled(bool v)
+      {
+         genericButtonToggled(f.dot_cross_squareSelect, v, FretDotType::DOT_CROSS_SQUARE);
+      }
+void InspectorFretDiagram::dot_cross_triangleButtonToggled(bool v)
+      {
+         genericButtonToggled(f.dot_cross_triangleSelect, v, FretDotType::DOT_CROSS_TRIANGLE);
+      }
+void InspectorFretDiagram::dot_cross_optionalButtonToggled(bool v)
+      {
+         genericButtonToggled(f.dot_cross_optionalSelect, v, FretDotType::DOT_CROSS_OPTIONAL);
+      }
+void InspectorFretDiagram::dot_square_triangleButtonToggled(bool v)
+      {
+         genericButtonToggled(f.dot_square_triangleSelect, v, FretDotType::DOT_SQUARE_TRIANGLE);
+      }
+void InspectorFretDiagram::dot_square_optionalButtonToggled(bool v)
+      {
+         genericButtonToggled(f.dot_square_optionalSelect, v, FretDotType::DOT_SQUARE_OPTIONAL);
+      }
+void InspectorFretDiagram::dot_triangle_optionalButtonToggled(bool v)
+      {
+         genericButtonToggled(f.dot_triangle_optionalSelect, v, FretDotType::DOT_TRIANGLE_OPTIONAL);
+      }
+void InspectorFretDiagram::cross_square_triangleButtonToggled(bool v)
+      {
+         genericButtonToggled(f.cross_square_triangleSelect, v, FretDotType::CROSS_SQUARE_TRIANGLE);
+      }
+void InspectorFretDiagram::cross_square_optionalButtonToggled(bool v)
+      {
+         genericButtonToggled(f.cross_square_optionalSelect, v, FretDotType::CROSS_SQUARE_OPTIONAL);
+      }
+void InspectorFretDiagram::cross_triangle_optionalButtonToggled(bool v)
+      {
+         genericButtonToggled(f.cross_triangle_optionalSelect, v, FretDotType::CROSS_TRIANGLE_OPTIONAL);
+      }
+void InspectorFretDiagram::square_triangle_optionalButtonToggled(bool v)
+      {
+         genericButtonToggled(f.square_triangle_optionalSelect, v, FretDotType::SQUARE_TRIANGLE_OPTIONAL);
+      }
+
+
+   
+   
+   
+   
+   
+   
+   
+   
 //---------------------------------------------------------
 //   barreButtonToggled
 //---------------------------------------------------------

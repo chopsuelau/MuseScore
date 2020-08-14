@@ -809,6 +809,17 @@ class MuseScore : public QMainWindow, public MuseScoreCore {
       static Palette* newBarLinePalette();
       static Palette* newLinesPalette();
       static Palette* newFretboardDiagramPalette();
+      static Palette* newFretboardDiagramPalette2();
+      static Palette* newFretboardDiagramPalette3();
+      static Palette* newFretboardDiagramPalette4();
+      static Palette* newFretboardDiagramPalette5();
+      static Palette* newFretboardDiagramPalette6();
+      static Palette* newFretboardDiagramPalette7();
+      static Palette* newFretboardDiagramPalette8();
+      static Palette* newFretboardDiagramPalette9();
+      static Palette* newFretboardDiagramPalette10();
+      static Palette* newFretboardDiagramPalette11();
+      static Palette* newFretboardDiagramPalette12();
 
       static PalettePanel* newTempoPalettePanel(bool defaultPalette = false);
       static PalettePanel* newTextPalettePanel(bool defaultPalette = false);
@@ -835,6 +846,17 @@ class MuseScore : public QMainWindow, public MuseScoreCore {
       static PalettePanel* newBarLinePalettePanel();
       static PalettePanel* newLinesPalettePanel();
       static PalettePanel* newFretboardDiagramPalettePanel();
+      static PalettePanel* newFretboardDiagramPalettePanel2();
+      static PalettePanel* newFretboardDiagramPalettePanel3();
+      static PalettePanel* newFretboardDiagramPalettePanel4();
+      static PalettePanel* newFretboardDiagramPalettePanel5();
+      static PalettePanel* newFretboardDiagramPalettePanel6();
+      static PalettePanel* newFretboardDiagramPalettePanel7();
+      static PalettePanel* newFretboardDiagramPalettePanel8();
+      static PalettePanel* newFretboardDiagramPalettePanel9();
+      static PalettePanel* newFretboardDiagramPalettePanel10();
+      static PalettePanel* newFretboardDiagramPalettePanel11();
+      static PalettePanel* newFretboardDiagramPalettePanel12();
       static PaletteTree* newMasterPaletteTree();
 
       WorkspaceDialog* workspaceDialog() { return _workspaceDialog; }

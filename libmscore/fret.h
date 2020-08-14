@@ -33,23 +33,58 @@ enum class FretDotType : signed char {
       CROSS,
       SQUARE,
       TRIANGLE,
+      CIRCLE_OPTIONAL,
       DOT_CROSS,
       DOT_SQUARE,
       DOT_TRIANGLE,
-      CIRCLE_OPTIONAL = 7
+      DOT_OPTIONAL,
+      CROSS_SQUARE,
+      CROSS_TRIANGLE,
+      CROSS_OPTIONAL,
+      SQUARE_TRIANGLE,
+      SQUARE_OPTIONAL,
+      TRIANGLE_OPTIONAL,
+      DOT_CROSS_SQUARE,
+      DOT_CROSS_TRIANGLE,
+      DOT_CROSS_OPTIONAL,
+      DOT_SQUARE_TRIANGLE,
+      DOT_SQUARE_OPTIONAL,
+      DOT_TRIANGLE_OPTIONAL,
+      CROSS_SQUARE_TRIANGLE,
+      CROSS_SQUARE_OPTIONAL,
+      CROSS_TRIANGLE_OPTIONAL,
+      SQUARE_TRIANGLE_OPTIONAL = 24
       };
 
 
 enum class FretMarkerType : signed char {
       NONE,
       CIRCLE,
+      DOT,
       CROSS,
       SQUARE,
       TRIANGLE,
+      CIRCLE_OPTIONAL,
       DOT_CROSS,
       DOT_SQUARE,
       DOT_TRIANGLE,
-      CIRCLE_OPTIONAL
+      DOT_OPTIONAL,
+      CROSS_SQUARE,
+      CROSS_TRIANGLE,
+      CROSS_OPTIONAL,
+      SQUARE_TRIANGLE,
+      SQUARE_OPTIONAL,
+      TRIANGLE_OPTIONAL,
+      DOT_CROSS_SQUARE,
+      DOT_CROSS_TRIANGLE,
+      DOT_CROSS_OPTIONAL,
+      DOT_SQUARE_TRIANGLE,
+      DOT_SQUARE_OPTIONAL,
+      DOT_TRIANGLE_OPTIONAL,
+      CROSS_SQUARE_TRIANGLE,
+      CROSS_SQUARE_OPTIONAL,
+      CROSS_TRIANGLE_OPTIONAL,
+      SQUARE_TRIANGLE_OPTIONAL
       };
 
 
@@ -167,12 +202,13 @@ class FretDiagram final : public Element {
       void removeBarres(int string, int fret = 0);
       void removeMarker(int s);
       void removeDotsMarkers(int ss, int es, int fret);
-
+//      EditData editData;//TODO://add note #
    public:
       FretDiagram(Score* s);
       FretDiagram(const FretDiagram&);
       ~FretDiagram();
-
+    
+    void drawShape(QPainter*,qreal x5, qreal y5,qreal diameter,FretDotType dType,qreal x3, qreal y3,qreal x4, qreal y4) const;
       void draw(QPainter*) const override;
       Element* linkedClone() override;
       FretDiagram* clone() const override { return new FretDiagram(*this); }
@@ -180,6 +216,9 @@ class FretDiagram final : public Element {
       Segment* segment() { return toSegment(parent()); }
 
       static FretDiagram* fromString(Score* score, const QString &s);
+   
+//   EditData& getEditData(){ return editData; }
+      static FretDiagram* fromString2(Score* score, const QString &s, int ofsetNumber);
 
       ElementType type() const override { return ElementType::FRET_DIAGRAM; }
       void layout() override;

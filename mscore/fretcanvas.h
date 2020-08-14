@@ -48,6 +48,7 @@ class FretCanvas : public QFrame {
       virtual void mouseMoveEvent(QMouseEvent*);
 
       void paintDotSymbol(QPainter& p, QPen& pen, qreal y, qreal x, qreal dotd, FretDotType dtype);
+      void paintDotShape(QPainter& p, QPen& pen, qreal y, qreal x, qreal dotd, FretDotType dtype,qreal x1, qreal y1,qreal x2, qreal y2);
       void getPosition(const QPointF& pos, int* string, int* fret);
 
    public:

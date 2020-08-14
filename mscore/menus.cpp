@@ -380,6 +380,52 @@ Palette* MuseScore::newFretboardDiagramPalette()
       {
       return toPalette(newFretboardDiagramPalettePanel());
       }
+   Palette* MuseScore::newFretboardDiagramPalette2()
+   {
+      return toPalette(newFretboardDiagramPalettePanel2());
+   }
+   Palette* MuseScore::newFretboardDiagramPalette3()
+   {
+      return toPalette(newFretboardDiagramPalettePanel3());
+   }
+   Palette* MuseScore::newFretboardDiagramPalette4()
+   {
+      return toPalette(newFretboardDiagramPalettePanel4());
+   }
+   Palette* MuseScore::newFretboardDiagramPalette5()
+   {
+      return toPalette(newFretboardDiagramPalettePanel5());
+   }
+   Palette* MuseScore::newFretboardDiagramPalette6()
+   {
+      return toPalette(newFretboardDiagramPalettePanel6());
+   }
+   Palette* MuseScore::newFretboardDiagramPalette7()
+   {
+      return toPalette(newFretboardDiagramPalettePanel7());
+   }
+   
+   Palette* MuseScore::newFretboardDiagramPalette8()
+   {
+      return toPalette(newFretboardDiagramPalettePanel8());
+   }
+   Palette* MuseScore::newFretboardDiagramPalette9()
+   {
+      return toPalette(newFretboardDiagramPalettePanel9());
+   }
+   Palette* MuseScore::newFretboardDiagramPalette10()
+   {
+      return toPalette(newFretboardDiagramPalettePanel10());
+   }
+   Palette* MuseScore::newFretboardDiagramPalette11()
+   {
+      return toPalette(newFretboardDiagramPalettePanel11());
+   }
+   Palette* MuseScore::newFretboardDiagramPalette12()
+   {
+      return toPalette(newFretboardDiagramPalettePanel12());
+   }
+   
 
 //---------------------------------------------------------
 //   newMasterPaletteTree
@@ -410,6 +456,17 @@ PaletteTree* MuseScore::newMasterPaletteTree()
       tree->append(MuseScore::newFingeringPalettePanel());
       tree->append(MuseScore::newRepeatsPalettePanel());
       tree->append(MuseScore::newFretboardDiagramPalettePanel());
+      tree->append(MuseScore::newFretboardDiagramPalettePanel2());
+      tree->append(MuseScore::newFretboardDiagramPalettePanel3());
+      tree->append(MuseScore::newFretboardDiagramPalettePanel4());
+      tree->append(MuseScore::newFretboardDiagramPalettePanel5());
+      tree->append(MuseScore::newFretboardDiagramPalettePanel6());
+      tree->append(MuseScore::newFretboardDiagramPalettePanel7());
+      tree->append(MuseScore::newFretboardDiagramPalettePanel8());
+      tree->append(MuseScore::newFretboardDiagramPalettePanel9());
+      tree->append(MuseScore::newFretboardDiagramPalettePanel10());
+      tree->append(MuseScore::newFretboardDiagramPalettePanel11());
+      tree->append(MuseScore::newFretboardDiagramPalettePanel12());
       tree->append(MuseScore::newAccordionPalettePanel());
       tree->append(MuseScore::newBagpipeEmbellishmentPalettePanel());
       tree->append(MuseScore::newBreaksPalettePanel());
@@ -1749,6 +1806,7 @@ PalettePanel* MuseScore::newTimePalettePanel()
       return sp;
       }
 
+
 //-----------------------------------
 //    newFretboardDiagramPalettePanel
 //-----------------------------------
@@ -1758,6 +1816,8 @@ PalettePanel* MuseScore::newFretboardDiagramPalettePanel()
       PalettePanel* sp = new PalettePanel(PalettePanel::Type::FretboardDiagram);
       sp->setName(QT_TRANSLATE_NOOP("Palette", "Fretboard Diagrams"));
       sp->setGrid(42, 45);
+//         sp->setMag(4.0);
+//      sp->setGrid(164, 180);
       sp->setDrawGrid(true);
 
       FretDiagram* fret = FretDiagram::fromString(gscore, "X32O1O");
@@ -1829,9 +1889,809 @@ PalettePanel* MuseScore::newFretboardDiagramPalettePanel()
       fret = FretDiagram::fromString(gscore, "X212O2");
       fret->setHarmony("B7");
       sp->append(fret, "B7");
-
       return sp;
       }
+
+   PalettePanel* MuseScore::newFretboardDiagramPalettePanel2()
+   {
+      PalettePanel* sp = new PalettePanel(PalettePanel::Type::Custom);
+      sp->setName(QT_TRANSLATE_NOOP("Palette", "C"));
+//      sp->setGrid(42, 45);
+      sp->setMag(4.0);
+      sp->setGrid(164, 180);
+      sp->setDrawGrid(true);
+      
+      //C Scale
+      FretDiagram* fret = FretDiagram::fromString(gscore, "X3221X");
+      fret->setHarmony("C6-1");
+      sp->append(fret, "C6-1");
+      
+      fret = FretDiagram::fromString(gscore, "X3243X");
+      fret->setHarmony("Cmaj9-2");
+      sp->append(fret, "Cmaj9-2");
+      
+      fret = FretDiagram::fromString(gscore, "X3545X");
+      fret->setHarmony("Cmaj7-3");
+      sp->append(fret, "Cmaj7-3");
+      
+      fret = FretDiagram::fromString(gscore, "X5756X");
+      fret->setHarmony("Dm7-4");
+      sp->append(fret, "Dm7-4");
+      
+      fret = FretDiagram::fromString(gscore, "89777X");
+      fret->setHarmony("C69#11-5");
+      sp->append(fret, "C69#11-5");
+      
+      fret = FretDiagram::fromString(gscore, "8X798X");
+      fret->setHarmony("C6-6");
+      sp->append(fret, "C6-6");
+      
+      fret = FretDiagram::fromString2(gscore, "X3211X",9);
+      fret->setHarmony("Caug-7");
+      sp->append(fret, "Caug-7");
+      
+      fret = FretDiagram::fromString2(gscore, "2X134X",7);
+      fret->setHarmony("C6-8");
+      sp->append(fret, "C6-8");
+      
+      fret = FretDiagram::fromString(gscore, "XX5557");
+      fret->setHarmony("Cmaj7-9");
+      sp->append(fret, "Cmaj7-9");
+      
+      fret = FretDiagram::fromString2(gscore, "X11122",7);
+      fret->setHarmony("C69-10");
+      sp->append(fret, "C69-10");
+      
+      fret = FretDiagram::fromString2(gscore, "XX3213",8);
+      fret->setHarmony("Cadd9-11");
+      sp->append(fret, "Cadd9-11");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1333",10);
+      fret->setHarmony("Cmaj7-12");
+      sp->append(fret, "Cmaj7-12");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1114",10);
+      fret->setHarmony("Dm7-13");
+      sp->append(fret, "Dm7-13");
+      
+      fret = FretDiagram::fromString2(gscore, "X2X121",14);
+      fret->setHarmony("C69#11-14");
+      sp->append(fret, "C69#11-14");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1122",14);
+      fret->setHarmony("C69-15");
+      sp->append(fret, "C69-15");
+      
+      fret = FretDiagram::fromString2(gscore, "X32114",13);
+      fret->setHarmony("Caug-16");
+      sp->append(fret, "Caug-16");
+      
+      fret = FretDiagram::fromString2(gscore, "X21344",14);
+      fret->setHarmony("C6-17");
+      sp->append(fret, "C6-17");
+      
+      return sp;
+   }
+   
+   PalettePanel* MuseScore::newFretboardDiagramPalettePanel3()
+   {
+      PalettePanel* sp = new PalettePanel(PalettePanel::Type::Custom);
+      sp->setName(QT_TRANSLATE_NOOP("Palette", "F"));
+//      sp->setGrid(42, 45);
+      sp->setMag(4.0);
+      sp->setGrid(164, 180);
+      sp->setDrawGrid(true);
+
+      // F Scale
+      FretDiagram* fret = FretDiagram::fromString(gscore, "1X221X");
+      fret->setHarmony("FMa7-1");
+      sp->append(fret, "FMa7-1");
+      
+      fret = FretDiagram::fromString(gscore, "X4322X");
+      fret->setHarmony("Faug-2");
+      sp->append(fret, "Faug-2");
+      
+      fret = FretDiagram::fromString(gscore, "5X353X");
+      fret->setHarmony("F6-3");
+      sp->append(fret, "F6-3");
+      
+      fret = FretDiagram::fromString(gscore, "5X355X");
+      fret->setHarmony("Fma7/A-4");
+      sp->append(fret, "F");
+      
+      fret = FretDiagram::fromString(gscore, "X8776X");
+      fret->setHarmony("F6-5");
+      sp->append(fret, "F6-5");
+      
+      fret = FretDiagram::fromString(gscore, "X8798X");
+      fret->setHarmony("Fmaj9-6");
+      sp->append(fret, "Fmaj9-6");
+      
+      fret = FretDiagram::fromString2(gscore, "X1323X",8);
+      fret->setHarmony("Fmaj7-7");
+      sp->append(fret, "Fmaj7-7");
+      
+      fret = FretDiagram::fromString2(gscore, "X1312X",10);
+      fret->setHarmony("Gm7-8");
+      sp->append(fret, "Gm7-8");
+      
+      fret = FretDiagram::fromString2(gscore, "2X111X",12);
+      fret->setHarmony("F69#11-9");
+      sp->append(fret, "F69#11-9");
+      
+      fret = FretDiagram::fromString2(gscore, "2X132X",12);
+      fret->setHarmony("F6-10");
+      sp->append(fret, "F6-10");
+      
+      fret = FretDiagram::fromString2(gscore, "X3211X",14);
+      fret->setHarmony("Faug-11");
+      sp->append(fret, "Faug-11");
+      
+      fret = FretDiagram::fromString2(gscore, "2X134X",12);
+      fret->setHarmony("F6-12");
+      sp->append(fret, "F6-12");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1113",10);
+      fret->setHarmony("Fmaj7-13");
+      sp->append(fret, "Fmaj7-13");
+      
+      fret = FretDiagram::fromString2(gscore, "X11122",12);
+      fret->setHarmony("F69-14");
+      sp->append(fret, "F69-14");
+      
+      fret = FretDiagram::fromString2(gscore, "XX3213",13);
+      fret->setHarmony("Fadd9-15");
+      sp->append(fret, "Fadd9-15");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1333",15);
+      fret->setHarmony("Fmaj7-16");
+      sp->append(fret, "Fmaj7-16");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1114",15);
+      fret->setHarmony("Gm7-17");
+      sp->append(fret, "Gm7-17");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1335",15);
+      fret->setHarmony("Fma7#11-18");
+      sp->append(fret, "Fma7#11-18");
+      
+      fret = FretDiagram::fromString2(gscore, "X21321",19);
+      fret->setHarmony("Fmaj9#11-18");
+      sp->append(fret, "Fmaj9#11-18");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1122",19);
+      fret->setHarmony("F69-19");
+      sp->append(fret, "F69-19");
+      return sp;
+   }
+   
+   PalettePanel* MuseScore::newFretboardDiagramPalettePanel4()
+   {
+      PalettePanel* sp = new PalettePanel(PalettePanel::Type::Custom);
+      sp->setName(QT_TRANSLATE_NOOP("Palette", "G7"));
+//      sp->setGrid(42, 45);
+      sp->setMag(4.0);
+      sp->setGrid(164, 180);
+      sp->setDrawGrid(true);
+
+      //G7 Scale
+      FretDiagram* fret = FretDiagram::fromString(gscore, "3X34XX");
+      fret->setHarmony("G7-1");
+      sp->append(fret, "G7-1");
+      
+      fret = FretDiagram::fromString(gscore, "3X321X");
+      fret->setHarmony("G11-2");
+      sp->append(fret, "G11-2");
+      
+      fret = FretDiagram::fromString(gscore, "3X342X");
+      fret->setHarmony("G7#11-3");
+      sp->append(fret, "G7#11-3");
+      
+      fret = FretDiagram::fromString2(gscore, "1X121X",3);
+      fret->setHarmony("G7-4");
+      sp->append(fret, "G7-4");
+      
+      fret = FretDiagram::fromString(gscore, "1X122X");
+      fret->setHarmony("G7#5-5");
+      sp->append(fret, "G7#5-5");
+      
+      fret = FretDiagram::fromString(gscore, "3X345X");
+      fret->setHarmony("G13-6");
+      sp->append(fret, "G13-6");
+      
+      fret = FretDiagram::fromString2(gscore, "1X124X",3);
+      fret->setHarmony("G7-7");
+      sp->append(fret, "G7-7");
+      
+      fret = FretDiagram::fromString2(gscore, "X3231X",8);
+      fret->setHarmony("G7-8");
+      sp->append(fret, "G7-8");
+      
+      fret = FretDiagram::fromString2(gscore, "X2121X",9);
+      fret->setHarmony("G7b9-9");
+      sp->append(fret, "G7b9-9");
+      
+      fret = FretDiagram::fromString2(gscore, "X2122X",9);
+      fret->setHarmony("G9-10");
+      sp->append(fret, "G9-10");
+      
+      fret = FretDiagram::fromString2(gscore, "X2123X",9);
+      fret->setHarmony("G7#9-11");
+      sp->append(fret, "G7#9-11");
+      
+      fret = FretDiagram::fromString2(gscore, "X1313X",10);
+      fret->setHarmony("G7-12");
+      sp->append(fret, "G7-12");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1324",5);
+      fret->setHarmony("G7sus4-13");
+      sp->append(fret, "G7sus4-13");
+      
+      fret = FretDiagram::fromString2(gscore, "X2X221",9);
+      fret->setHarmony("G9#11-14");
+      sp->append(fret, "G9#11-14");
+      
+      fret = FretDiagram::fromString2(gscore, "X21222",9);
+      fret->setHarmony("G9-15");
+      sp->append(fret, "G9-15");
+      
+      fret = FretDiagram::fromString2(gscore, "X21213",9);
+      fret->setHarmony("G7b9#5-16");
+      sp->append(fret, "G7b9#5-16");
+      
+      fret = FretDiagram::fromString2(gscore, "X21224",9);
+      fret->setHarmony("G13-17");
+      sp->append(fret, "G13-17");
+      
+      fret = FretDiagram::fromString2(gscore, "X13114",10);
+      fret->setHarmony("G7-18");
+      sp->append(fret, "G7-18");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1211",15);
+      fret->setHarmony("G7-19");
+      sp->append(fret, "G7-19");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1212",15);
+      fret->setHarmony("G7b9-20");
+      sp->append(fret, "G7b920");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1213",15);
+      fret->setHarmony("G9-21");
+      sp->append(fret, "G9-21");
+      return sp;
+   }
+   
+   PalettePanel* MuseScore::newFretboardDiagramPalettePanel5()
+   {
+      PalettePanel* sp = new PalettePanel(PalettePanel::Type::Custom);
+      sp->setName(QT_TRANSLATE_NOOP("Palette", "Am7"));
+//      sp->setGrid(42, 45);
+      sp->setMag(4.0);
+      sp->setGrid(164, 180);
+      sp->setDrawGrid(true);
+      
+      //Am7 Scale
+      FretDiagram* fret = FretDiagram::fromString2(gscore, "1X11XX",5);
+      fret->setHarmony("Am7-1");
+      sp->append(fret, "Am7-1");
+      
+      fret = FretDiagram::fromString(gscore, "5X553X");
+      fret->setHarmony("Am11-2");
+      sp->append(fret, "Am11-2");
+      
+      fret = FretDiagram::fromString2(gscore, "1X111X",5);
+      fret->setHarmony("Am7-3");
+      sp->append(fret, "Am7-3");
+      
+      fret = FretDiagram::fromString2(gscore, "1X112X",5);
+      fret->setHarmony("Am7#5-4");
+      sp->append(fret, "Am7#5-4");
+      
+      fret = FretDiagram::fromString2(gscore, "2X124X",4);
+      fret->setHarmony("Am6-5");
+      sp->append(fret, "Am6-5");
+      
+      fret = FretDiagram::fromString2(gscore, "1X114X",5);
+      fret->setHarmony("Am7-6");
+      sp->append(fret, "Am7-6");
+      
+      fret = FretDiagram::fromString2(gscore, "X4211X",9);
+      fret->setHarmony("Am maj7-7");
+      sp->append(fret, "Am maj7-7");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1111",5);
+      fret->setHarmony("Am7-8");
+      sp->append(fret, "Am7-8");
+      
+      fret = FretDiagram::fromString(gscore, "5X5557");
+      fret->setHarmony("Am9-9");
+      sp->append(fret, "Am9-9");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1114",5);
+      fret->setHarmony("Am7-10");
+      sp->append(fret, "Am7-10");
+      
+      fret = FretDiagram::fromString2(gscore, "X1314X",12);
+      fret->setHarmony("Am11-11");
+      sp->append(fret, "Am11-11");
+      
+      fret = FretDiagram::fromString2(gscore, "X1X121",12);
+      fret->setHarmony("Am7-12");
+      sp->append(fret, "Am7-12");
+      
+      fret = FretDiagram::fromString2(gscore, "X1X323",12);
+      fret->setHarmony("Am6-13");
+      sp->append(fret, "Am6-13");
+      
+      fret = FretDiagram::fromString2(gscore, "X13124",12);
+      fret->setHarmony("Am7-14");
+      sp->append(fret, "Am7-14");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1111",17);
+      fret->setHarmony("Am7-15");
+      sp->append(fret, "Am7-15");
+      return sp;
+   }
+   
+   PalettePanel* MuseScore::newFretboardDiagramPalettePanel6()
+   {
+      PalettePanel* sp = new PalettePanel(PalettePanel::Type::Custom);
+      sp->setName(QT_TRANSLATE_NOOP("Palette", "E7"));
+//      sp->setGrid(42, 45);
+      sp->setMag(4.0);
+      sp->setGrid(164, 180);
+      sp->setDrawGrid(true);
+      
+      //E7 Scale
+      FretDiagram* fret = FretDiagram::fromString(gscore, "OXO1XX");
+      fret->setHarmony("E7-1");
+      sp->append(fret, "E7-1");
+      
+      fret = FretDiagram::fromString(gscore, "OXOXXX");
+      fret->setHarmony("E7-2");
+      sp->append(fret, "E7-2");
+      
+      fret = FretDiagram::fromString(gscore, "XXX1XX");
+      fret->setHarmony("E7#11-3");
+      sp->append(fret, "E7#11-3");
+      
+      fret = FretDiagram::fromString(gscore, "OXO1OX");
+      fret->setHarmony("E7-4");
+      sp->append(fret, "E7-4");
+      
+      fret = FretDiagram::fromString(gscore, "OXO11X");
+      fret->setHarmony("E7#5-5");
+      sp->append(fret, "E7#5-5");
+      
+      fret = FretDiagram::fromString(gscore, "OXO12X");
+      fret->setHarmony("E13-6");
+      sp->append(fret, "E13-6");
+      
+      fret = FretDiagram::fromString(gscore, "OXO13X");
+      fret->setHarmony("E7-7");
+      sp->append(fret, "E7-7");
+      
+      fret = FretDiagram::fromString2(gscore, "X3231X",5);
+      fret->setHarmony("E7-8");
+      sp->append(fret, "E7-8");
+      
+      fret = FretDiagram::fromString2(gscore, "X2121X",6);
+      fret->setHarmony("E7b9-9");
+      sp->append(fret, "E7b9-9");
+      
+      fret = FretDiagram::fromString2(gscore, "X2122X",6);
+      fret->setHarmony("E9-10");
+      sp->append(fret, "E9-10");
+      
+      fret = FretDiagram::fromString2(gscore, "X2123X",6);
+      fret->setHarmony("E7#9-11");
+      sp->append(fret, "E7#9-11");
+      
+      fret = FretDiagram::fromString2(gscore, "X1313X",7);
+      fret->setHarmony("E7-12");
+      sp->append(fret, "E7-12");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1324",2);
+      fret->setHarmony("E7sus4-13");
+      sp->append(fret, "E7sus4-13");
+      
+      fret = FretDiagram::fromString2(gscore, "X2X221",6);
+      fret->setHarmony("E9#11-14");
+      sp->append(fret, "E9#11-14");
+      
+      fret = FretDiagram::fromString2(gscore, "X21222",6);
+      fret->setHarmony("E9-15");
+      sp->append(fret, "E9-15");
+      
+      fret = FretDiagram::fromString2(gscore, "X21213",6);
+      fret->setHarmony("E7b9#5-16");
+      sp->append(fret, "E7b9#5-16");
+      
+      fret = FretDiagram::fromString2(gscore, "X21224",6);
+      fret->setHarmony("E13-17");
+      sp->append(fret, "E13-17");
+      
+      fret = FretDiagram::fromString2(gscore, "X13114",7);
+      fret->setHarmony("E7-18");
+      sp->append(fret, "E7-18");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1211",12);
+      fret->setHarmony("E7-19");
+      sp->append(fret, "E7-19");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1212",12);
+      fret->setHarmony("E7b9-20");
+      sp->append(fret, "E7b920");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1213",12);
+      fret->setHarmony("E9-21");
+      sp->append(fret, "E9-21");
+      return sp;
+   }
+   
+   PalettePanel* MuseScore::newFretboardDiagramPalettePanel7()
+   {
+      PalettePanel* sp = new PalettePanel(PalettePanel::Type::Custom);
+      sp->setName(QT_TRANSLATE_NOOP("Palette", "Dim G1"));
+//      sp->setGrid(42, 45);
+      sp->setMag(4.0);
+      sp->setGrid(164, 180);
+      sp->setDrawGrid(true);
+
+      //Dim chord forms 1
+      FretDiagram* fret = FretDiagram::fromString(gscore, "2X121X");
+      fret->setHarmony("Gbdim-1");
+      sp->append(fret, "Gbdim-1");
+      
+      fret = FretDiagram::fromString(gscore, "2X123X");
+      fret->setHarmony("Gbdim/add D-2");
+      sp->append(fret, "Gbdim/add D-2");
+      
+      fret = FretDiagram::fromString2(gscore, "2X121X",4);
+      fret->setHarmony("Adim-3");
+      sp->append(fret, "Adim-3");
+      
+      fret = FretDiagram::fromString(gscore, "5X456X");
+      fret->setHarmony("Adim addF-4");
+      sp->append(fret, "Adim addF-4");
+      
+      fret = FretDiagram::fromString2(gscore, "2X121X",7);
+      fret->setHarmony("Cdim-5");
+      sp->append(fret, "Cdim-5");
+      
+      fret = FretDiagram::fromString(gscore, "8X789X");
+      fret->setHarmony("Cdim/addAb-6");
+      sp->append(fret, "Cdim/addAb-6");
+      
+      fret = FretDiagram::fromString2(gscore, "2X121X",10);
+      fret->setHarmony("Ebdim-7");
+      sp->append(fret, "Ebdim-7");
+      
+      fret = FretDiagram::fromString2(gscore, "2X123X",10);
+      fret->setHarmony("EbdimAddB-8");
+      sp->append(fret, "EbdimAddB-8");
+      return sp;
+   }
+   
+   PalettePanel* MuseScore::newFretboardDiagramPalettePanel8()
+   {
+      PalettePanel* sp = new PalettePanel(PalettePanel::Type::Custom);
+      sp->setName(QT_TRANSLATE_NOOP("Palette", "Dim G2"));
+//      sp->setGrid(42, 45);
+      sp->setMag(4.0);
+      sp->setGrid(164, 180);
+      sp->setDrawGrid(true);
+      
+      // Dim chord forms 2
+      FretDiagram* fret = FretDiagram::fromString(gscore, "XX1212");
+      fret->setHarmony("EbDim-1");
+      sp->append(fret, "EbDim-1");
+      
+      fret = FretDiagram::fromString(gscore, "XX1213");
+      fret->setHarmony("EbDimAddG-2");
+      sp->append(fret, "EbDimAddG-2");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1212",4);
+      fret->setHarmony("GbDim-3");
+      sp->append(fret, "GbDim-3");
+      
+      fret = FretDiagram::fromString(gscore, "XX4546");
+      fret->setHarmony("GbDimAddBb-4");
+      sp->append(fret, "GbDimAddBb-4");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1212",7);
+      fret->setHarmony("Adim-5");
+      sp->append(fret, "Adim-5");
+      
+      fret = FretDiagram::fromString(gscore, "XX7879");
+      fret->setHarmony("AdimAddDb-6");
+      sp->append(fret, "AdimAddDb-6");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1212",10);
+      fret->setHarmony("Cdim-7");
+      sp->append(fret, "Cdim-7");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1213",10);
+      fret->setHarmony("CdimAddE-8");
+      sp->append(fret, "CdimAddE-8");
+      return sp;
+   }
+   
+   PalettePanel* MuseScore::newFretboardDiagramPalettePanel9()
+   {
+      PalettePanel* sp = new PalettePanel(PalettePanel::Type::Custom);
+      sp->setName(QT_TRANSLATE_NOOP("Palette", "Dm7"));
+//      sp->setGrid(42, 45);
+      sp->setMag(4.0);
+      sp->setGrid(164, 180);
+      sp->setDrawGrid(true);
+
+      // Dm7 scale
+      FretDiagram* fret = FretDiagram::fromString2(gscore, "X421OX",2);
+      fret->setHarmony("Dm6-1");
+      sp->append(fret, "Dm6-1");
+      
+      fret = FretDiagram::fromString(gscore, "X535XX");
+      fret->setHarmony("Dm7-2");
+      sp->append(fret, "Dm7-2");
+      
+      fret = FretDiagram::fromString2(gscore, "X4211X",2);
+      fret->setHarmony("Dm maj7-3");
+      sp->append(fret, "Dm maj7-3");
+      
+      fret = FretDiagram::fromString(gscore, "X5353X");
+      fret->setHarmony("Dm7");
+      sp->append(fret, "Dm7");
+      
+      fret = FretDiagram::fromString(gscore, "X5355X");
+      fret->setHarmony("Dm9-5");
+      sp->append(fret, "Dm9-5");
+      
+      fret = FretDiagram::fromString(gscore, "X5756X");
+      fret->setHarmony("Dm7-6");
+      sp->append(fret, "Dm7-6");
+      
+      fret = FretDiagram::fromString2(gscore, "X1314X",5);
+      fret->setHarmony("Dm11-7");
+      sp->append(fret, "Dm11-7");
+      
+      fret = FretDiagram::fromString(gscore, "X57565");
+      fret->setHarmony("Dm7-8");
+      sp->append(fret, "Dm7-8");
+      
+      fret = FretDiagram::fromString2(gscore, "1X112X",10);
+      fret->setHarmony("Dm7#5-9");
+      sp->append(fret, "Dm7#5-9");
+      
+      fret = FretDiagram::fromString2(gscore, "2X124X",9);
+      fret->setHarmony("Dm6-10");
+      sp->append(fret, "Dm6-10");
+      
+      fret = FretDiagram::fromString2(gscore, "X13124",5);
+      fret->setHarmony("Dm7-11");
+      sp->append(fret, "Dm7-11");
+      
+      fret = FretDiagram::fromString2(gscore, "XX4221",9);
+      fret->setHarmony("Dm maj7-12");
+      sp->append(fret, "Dm maj7-12");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1111",10);
+      fret->setHarmony("Dm7-13");
+      sp->append(fret, "Dm7-13");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1113",10);
+      fret->setHarmony("Dm9-14");
+      sp->append(fret, "Dm9-14");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1114",10);
+      fret->setHarmony("Dm7-15");
+      sp->append(fret, "Dm7-15");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1324",12);
+      fret->setHarmony("Dm11-16");
+      sp->append(fret, "Dm11-16");
+      
+      fret = FretDiagram::fromString2(gscore, "X1X121",17);
+      fret->setHarmony("Dm7-17");
+      sp->append(fret, "Dm7-17");
+      return sp;
+   }
+   
+   PalettePanel* MuseScore::newFretboardDiagramPalettePanel10()
+   {
+      PalettePanel* sp = new PalettePanel(PalettePanel::Type::Custom);
+      sp->setName(QT_TRANSLATE_NOOP("Palette", "Dim G3"));
+//      sp->setGrid(42, 45);
+      sp->setMag(4.0);
+      sp->setGrid(164, 180);
+      sp->setDrawGrid(true);
+
+      //Dim chord forms3
+      FretDiagram* fret = FretDiagram::fromString(gscore, "X3423X");
+      fret->setHarmony("Cdim-1");
+      sp->append(fret, "Cdim-1");
+      
+      fret = FretDiagram::fromString(gscore, "X3424X");
+      fret->setHarmony("CdimAddE-2");
+      sp->append(fret, "CdimAddE-2");
+      
+      fret = FretDiagram::fromString(gscore, "X6757X");
+      fret->setHarmony("EbDim-3");
+      sp->append(fret, "EbDim-3");
+      
+      fret = FretDiagram::fromString2(gscore, "X2314X",5);
+      fret->setHarmony("EbDimAddG-4");
+      sp->append(fret, "EbDimAddG-4");
+      
+      fret = FretDiagram::fromString2(gscore, "X2313X",8);
+      fret->setHarmony("GbDim-5");
+      sp->append(fret, "GbDim-5");
+      
+      fret = FretDiagram::fromString2(gscore, "X2314X",8);
+      fret->setHarmony("GbDimAddBb-6");
+      sp->append(fret, "GbDimAddBb-6");
+      
+      fret = FretDiagram::fromString2(gscore, "X2313X",11);
+      fret->setHarmony("Adim-7");
+      sp->append(fret, "Adim-7");
+      
+      fret = FretDiagram::fromString2(gscore, "X2314X",11);
+      fret->setHarmony("AdimAddDb-8");
+      sp->append(fret, "AdimAddDb-8");
+      return sp;
+      //End Dim G3
+
+   }
+
+   PalettePanel* MuseScore::newFretboardDiagramPalettePanel11()
+   {
+      PalettePanel* sp = new PalettePanel(PalettePanel::Type::Custom);
+      sp->setName(QT_TRANSLATE_NOOP("Palette", "Minor 7b5"));
+//      sp->setGrid(42, 45);
+      sp->setMag(4.0);
+      sp->setGrid(164, 180);
+      sp->setDrawGrid(true);
+      
+      //Minor 7b5
+      FretDiagram* fret = FretDiagram::fromString(gscore, "5X554X");
+      fret->setHarmony("Am7b5-1-1");
+      sp->append(fret, "Am7b5-1-1");
+      
+      fret = FretDiagram::fromString(gscore, "5X553X");
+      fret->setHarmony("Am11-1-2");
+      sp->append(fret, "Am11-1-2");
+      
+      fret = FretDiagram::fromString2(gscore, "X1212X",3);
+      fret->setHarmony("Cm7b5-2-1");
+      sp->append(fret, "Cm7b5-2-1");
+      
+      fret = FretDiagram::fromString2(gscore, "X1214X",3);
+      fret->setHarmony("Cm11b5-2-2");
+      sp->append(fret, "Cm11b5-2-2");
+      
+      fret = FretDiagram::fromString(gscore, "X3X342");
+      fret->setHarmony("Cm7b5-3-1");
+      sp->append(fret, "Cm7b5-3-1");
+      
+      fret = FretDiagram::fromString2(gscore, "X3X341",1);
+      fret->setHarmony("Cm11-3-2");
+      sp->append(fret, "Cm11-3-2");
+      
+      fret = FretDiagram::fromString2(gscore, "OX1222",2);
+      fret->setHarmony("Em7b5-4-1");
+      sp->append(fret, "Em7b5-4-1");
+      
+      fret = FretDiagram::fromString2(gscore, "OX1224",2);
+      fret->setHarmony("Em11b5-4-2");
+      sp->append(fret, "Em11b5-4-2");
+      
+      fret = FretDiagram::fromString2(gscore, "1211XX",3);
+      fret->setHarmony("Gm7b5-5-1");
+      sp->append(fret, "Gm7b5-5-1");
+      
+      fret = FretDiagram::fromString2(gscore, "12114X",3);
+      fret->setHarmony("Gm7b5-5-2");
+      sp->append(fret, "Gm7b5-5-2");
+      return sp;
+   }
+
+   PalettePanel* MuseScore::newFretboardDiagramPalettePanel12()
+   {
+      PalettePanel* sp = new PalettePanel(PalettePanel::Type::Custom);
+      sp->setName(QT_TRANSLATE_NOOP("Palette", "B7"));
+      //      sp->setGrid(42, 45);
+      sp->setMag(4.0);
+      sp->setGrid(164, 180);
+      sp->setDrawGrid(true);
+      
+      //B7 Scale
+      FretDiagram* fret = FretDiagram::fromString2(gscore, "1X12XX",3);
+      fret->setHarmony("B7-1");
+      sp->append(fret, "B7-1");
+      
+      fret = FretDiagram::fromString2(gscore, "3X321X",1+4);
+      fret->setHarmony("B11-2");
+      sp->append(fret, "B11-2");
+      
+      fret = FretDiagram::fromString2(gscore, "2X231X",2+4);//3X342X
+      fret->setHarmony("B7#11-3");
+      sp->append(fret, "B7#11-3");
+      
+      fret = FretDiagram::fromString2(gscore, "1X121X",3+4);//3X343X
+      fret->setHarmony("B7-4");
+      sp->append(fret, "B7-4");
+      
+      fret = FretDiagram::fromString2(gscore, "1X122X",3+4);//3X344X
+      fret->setHarmony("B7#5-5");
+      sp->append(fret, "B7#5-5");
+      
+      fret = FretDiagram::fromString2(gscore, "1X123X",3+4);
+      fret->setHarmony("B13-6");
+      sp->append(fret, "B13-6");
+      
+      fret = FretDiagram::fromString2(gscore, "1X124X",3+4);
+      fret->setHarmony("B7-7");
+      sp->append(fret, "B7-7");
+      
+      fret = FretDiagram::fromString2(gscore, "X3231X",8+4);
+      fret->setHarmony("B7-8");
+      sp->append(fret, "B7-8");
+      
+      fret = FretDiagram::fromString2(gscore, "X2121X",9+4);
+      fret->setHarmony("B7b9-9");
+      sp->append(fret, "B7b9-9");
+      
+      fret = FretDiagram::fromString2(gscore, "X2122X",9+4);
+      fret->setHarmony("B9-10");
+      sp->append(fret, "B9-10");
+      
+      fret = FretDiagram::fromString2(gscore, "X2123X",9+4);
+      fret->setHarmony("B7#9-11");
+      sp->append(fret, "B7#9-11");
+      
+      fret = FretDiagram::fromString2(gscore, "X1313X",10+4);
+      fret->setHarmony("B7-12");
+      sp->append(fret, "B7-12");
+      
+      fret = FretDiagram::fromString2(gscore, "XX1324",5+4);
+      fret->setHarmony("B7sus4-13");
+      sp->append(fret, "B7sus4-13");
+      
+      fret = FretDiagram::fromString2(gscore, "X2X221",9+4);
+      fret->setHarmony("B9#11-14");
+      sp->append(fret, "B9#11-14");
+      
+      fret = FretDiagram::fromString2(gscore, "X21222",9+4);
+      fret->setHarmony("B9-15");
+      sp->append(fret, "B9-15");
+      
+      fret = FretDiagram::fromString2(gscore, "X21213",9+4);
+      fret->setHarmony("B7b9#5-16");
+      sp->append(fret, "B7b9#5-16");
+      
+      fret = FretDiagram::fromString2(gscore, "X21224",9+4);
+      fret->setHarmony("B13-17");
+      sp->append(fret, "B13-17");
+      
+      fret = FretDiagram::fromString2(gscore, "X13114",10+4);
+      fret->setHarmony("B7-18");
+      sp->append(fret, "B7-18");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1211",15+4);
+      fret->setHarmony("B7-19");
+      sp->append(fret, "B7-19");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1212",15+4);
+      fret->setHarmony("B7b9-20");
+      sp->append(fret, "B7b920");
+      
+      fret = FretDiagram::fromString2(gscore, "1X1213",15+4);
+      fret->setHarmony("B9-21");
+      sp->append(fret, "B9-21");
+      return sp;
+   }
+   
+   
 //########END DEBUG: new palettes #########################
 
 //---------------------------------------------------------
@@ -1862,6 +2722,17 @@ void MuseScore::setDefaultPalette()
       defaultPalette->append(newFingeringPalettePanel());
       defaultPalette->append(newRepeatsPalettePanel());
       defaultPalette->append(newFretboardDiagramPalettePanel());
+      defaultPalette->append(newFretboardDiagramPalettePanel2());
+      defaultPalette->append(newFretboardDiagramPalettePanel3());
+      defaultPalette->append(newFretboardDiagramPalettePanel4());
+      defaultPalette->append(newFretboardDiagramPalettePanel5());
+      defaultPalette->append(newFretboardDiagramPalettePanel6());
+      defaultPalette->append(newFretboardDiagramPalettePanel7());
+      defaultPalette->append(newFretboardDiagramPalettePanel8());
+      defaultPalette->append(newFretboardDiagramPalettePanel9());
+      defaultPalette->append(newFretboardDiagramPalettePanel10());
+      defaultPalette->append(newFretboardDiagramPalettePanel11());
+      defaultPalette->append(newFretboardDiagramPalettePanel12());
       defaultPalette->append(newAccordionPalettePanel());
       defaultPalette->append(newBagpipeEmbellishmentPalettePanel());
       defaultPalette->append(newBreaksPalettePanel());
