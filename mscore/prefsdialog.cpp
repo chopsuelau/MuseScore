@@ -150,10 +150,10 @@ PreferenceDialog::PreferenceDialog(QWidget* parent)
       connect(bgColorButton, &QRadioButton::toggled, this, &PreferenceDialog::updateBgView);
 
       zoomDefaultType->clear();
-      zoomDefaultType->addItem(tr("Page Width"), 0);
-      zoomDefaultType->addItem(tr("Whole Page"), 1);
-      zoomDefaultType->addItem(tr("Two Pages"), 2);
-      zoomDefaultType->addItem(tr("Percentage"), 3);
+      zoomDefaultType->addItem(tr("Percentage"), 0);
+      zoomDefaultType->addItem(tr("Page Width"), 1);
+      zoomDefaultType->addItem(tr("Whole Page"), 2);
+      zoomDefaultType->addItem(tr("Two Pages"), 3);
 
       zoomPrecisionKeyboard->setRange(ZOOM_PRECISION_MIN, ZOOM_PRECISION_MAX);
       zoomPrecisionMouse->setRange(ZOOM_PRECISION_MIN, ZOOM_PRECISION_MAX);
@@ -306,7 +306,6 @@ void PreferenceDialog::start()
                   new IntPreferenceItem(PREF_IO_OSC_PORTNUMBER, oscPort),
                   new BoolPreferenceItem(PREF_IO_OSC_USEREMOTECONTROL, oscServer),
                   new BoolPreferenceItem(PREF_SCORE_CHORD_PLAYONADDNOTE, playChordOnAddNote),
-                  new BoolPreferenceItem(PREF_SCORE_HARMONY_PLAY, playHarmony),
                   new BoolPreferenceItem(PREF_SCORE_HARMONY_PLAY_ONEDIT, playHarmonyOnEdit),
                   new IntPreferenceItem(PREF_SCORE_NOTE_DEFAULTPLAYDURATION, defaultPlayDuration),
                   new BoolPreferenceItem(PREF_SCORE_NOTE_PLAYONCLICK, playNotes),
