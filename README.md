@@ -7,6 +7,18 @@ Music notation and composition software
 
 MuseScore is an open source and free music notation software. For support, contribution, and bug reports visit MuseScore.org. Fork and make pull requests!
 
+## Fork dedicated to Ted Greene notation
+
+## Log
+
+15.09.20
+- Full playing order notation ●-x-□-△-○
+- Added optional notation
+- Stack up to 3 notations per note
+- Ability to add notation to note and open string
+- Ability to add full playing order notation on open string
+
+
 ## Features
 
 - WYSIWYG design, notes are entered on a "virtual notepaper"
